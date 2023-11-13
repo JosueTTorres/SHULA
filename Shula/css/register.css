@@ -1,0 +1,623 @@
+/* ==========================
+        Estilos Generales
+   ========================== */
+
+:root {
+    --primary-color: #a6c6e9;
+    --background-color: #F5F5F5;
+    --dark-color: #2d4c55;
+    --background-color-2: #EFF1F0;
+    --logo: #003F5F;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* ==========================
+            Header
+   ========================== */
+
+   .fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+}
+
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 2000px;
+    width: 100%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen{
+    color: var(--dark-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+nav .nav-bar .logo a{
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--logo);
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+.menu .logo-toggle{
+    display: none;
+}
+
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar .nav-links li{
+    margin: 0 5px;
+    list-style: none;
+}
+
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--logo);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links li a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover a::before {
+    width: 70%;
+    opacity: 1;
+}
+
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.searchToggle i{
+    position: absolute;
+    color: var(--dark-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchBox{
+    position: relative;
+}
+
+.searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 12px;
+    width: 12px;
+    background-color: var(--dark-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.search-field input{
+    height: 100%;
+    width: 100%;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark-color);
+}
+
+.search-field i{
+    position: absolute;
+    color: var(--dark-color);
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+}
+
+.main a {
+    margin-right: 25px;
+    color: #193760;
+    font-size: 1.8rem;
+    font-weight: 500;
+    transition: all .50s ease;
+    text-decoration: none;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user i {
+    color: #193760;
+    font-size: 23px;
+    margin-right: 7px;
+}
+
+.main a:hover {
+    color: #193760;
+}
+
+/* ==========================
+            Registro
+   ========================== */
+
+   main {
+    width: 100%;
+    padding: 140px;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content_all {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+.backbox {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    background-color: #003F5F;
+}
+
+.backbox div {
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+}
+
+.backbox div p,
+.backbox div button {
+    margin-top: 30px;
+}
+
+.backbox div h3 {
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.backbox div p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.backbox button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #2d4c55;
+    outline: none;
+    transition: all 300ms;
+}
+
+.backbox button:hover {
+    background: #a6c6e9;
+    color: white;
+}
+
+/* ==========================
+            Forms
+   ========================== */
+
+.content_login_register {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -210px;
+    left: 10px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.content_login_register form {
+    width: 100%;
+    padding: 100px 20px;
+    background: #fff;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.content_login_register form h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #003F5F;
+}
+
+.content_login_register form input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #F2F2F2;
+    font-size: 16px;
+    outline: none;
+}
+
+.content_login_register form button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    background: #003F5F;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.form_login {
+    opacity: 1;
+    display: block;
+}
+
+.form_register {
+    display: none;
+}
+
+/* ==========================
+            Footer
+   ========================== */
+
+footer {
+    width: 100%;
+    position: absolute;
+    padding: 2rem 8%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-logo {
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.social-icons-container, .footer-menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.social-icons-container i {
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+    color: #003F5F;
+}
+
+.footer-menu-container {
+    list-style-type: none;
+    color: #003F5F;
+    font-size: 18px;
+}
+
+.menu-item {
+    margin: 1rem 1.5rem;
+}
+
+.menu-item a {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.6;
+    color: #2d4c55;
+}
+
+.menu-item a:hover {
+    opacity: 1;
+}
+
+.copyright {
+    color: #003F5F;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* ==========================
+         Queries 820px
+   ========================== */
+
+@media screen and (max-width: 820px){
+
+    html {
+        font-size: 55%;
+    }
+
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--background-color-2);
+        z-index: 100;
+        transition: all 0.4s ease;
+    }
+
+    nav.active .menu{
+        left: -0%;
+    }
+
+    nav.active .nav-bar .navLogo a{
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-toggle .siderbarClose{
+        color: var(--dark-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+    
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+    }
+
+    .content_login_register form h2 {
+        font-size: 24px;
+    }
+
+    .backbox {
+        max-width: 400px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .backbox div {
+        margin: 0px;
+        position: absolute;
+    }
+
+    .backbox div p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+
+    /*Formularios*/
+
+    .content_login_register {
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+
+    .content_login_register form {
+        position: relative;
+    }
+}
+
+
+@media (max-width: 468px) {
+
+    html {
+        font-size: 42.5%;
+    }
+
+    header {
+        width: 100%;
+        height: 80px;
+        background-color: white; 
+        display: flex;
+        justify-content: space-between; 
+        padding: 0 30px;
+        align-items: center;
+        box-shadow: 0 16px 8px -9px rgba(191, 191, 191,);
+    }
+
+    main {
+        padding: 20px;
+        margin-top: 150px; 
+        overflow-y: scroll;
+    }
+
+    .main a {
+        margin-right: -10px;
+    }
+    
+    .searchBox {
+        margin-right: -10px;
+        margin-left: 5px;
+    }
+
+    .content_login_register {
+        top: 0;
+        left: 0; 
+    }
+
+    .content_login_register form {
+        padding: 30px 20px;
+    }
+
+    .content_login_register form h2 {
+        font-size: 24px;
+    }
+
+    .backbox {
+        max-width: 290px;
+        height: 150px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .backbox div {
+        margin: 0px;
+        position: absolute;
+    }
+
+    .backbox div h3 {
+        font-size: 16px;
+    }
+
+    .backbox div p,
+    .backbox div button {
+        font-size: 12px;
+        margin-top: 15px;
+    }
+
+
+    /*Formularios*/
+
+    .content_login_register {
+        top: -10px;
+        left: -5px;
+        max-width: 320px;
+    }
+
+    .content_login_register form {
+        position: relative;
+    }
+
+    .footer-logo {
+        width: 100px;
+    }
+
+    .menu-footer{
+        grid-template-columns: 1fr;
+    }
+}
